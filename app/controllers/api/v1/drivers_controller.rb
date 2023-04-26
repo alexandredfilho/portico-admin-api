@@ -1,6 +1,7 @@
 module Api
   module V1
     class DriversController < ApplicationController
+      before_action :authenticate_user!
       before_action :set_driver, only: %i[show update destroy]
 
       def index
