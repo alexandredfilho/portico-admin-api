@@ -1,6 +1,7 @@
 module Api
   module V1
     class ShipmentsController < ApplicationController
+      before_action :authenticate_user!
       before_action :set_shipment, only: %i[show update destroy]
 
       def index
