@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: portico_admin_api_development
+
+test:
+  <<: *default
+  database: portico_admin_api_test
+
+production:
+  <<: *default
+  database: portico_admin_api_production
+  username: portico_admin_api
+  password: <%= ENV["PORTICO_ADMIN_API_DATABASE_PASSWORD"] %>
