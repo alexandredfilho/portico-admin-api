@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_11_124224) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_11_153111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,12 +43,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_11_124224) do
     t.bigint "driver_id", null: false
     t.bigint "vehicle_id", null: false
     t.bigint "customer_id", null: false
-    t.string "invoice_number"
-    t.string "cargo_checker"
-    t.string "dock"
+    t.string "invoice_number", null: false
+    t.string "cargo_checker", null: false
+    t.string "dock", null: false
     t.enum "kind", null: false, enum_type: "kind"
     t.enum "warehouse", null: false, enum_type: "warehouse"
-    t.enum "internship", null: false, enum_type: "internship"
+    t.enum "status", null: false, enum_type: "internship"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_shipments_on_customer_id"
