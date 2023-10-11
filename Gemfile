@@ -20,6 +20,8 @@ group :development, :test do
   gem "pry"
   gem "debug", platforms: %i[ mri windows ]
   gem "faker"
+  gem 'annotate'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :test do
