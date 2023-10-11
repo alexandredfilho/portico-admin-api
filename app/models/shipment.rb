@@ -3,11 +3,11 @@
 # Table name: shipments
 #
 #  id             :bigint           not null, primary key
-#  cargo_checker  :string
-#  dock           :string
-#  internship     :enum             not null
-#  invoice_number :string
+#  cargo_checker  :string           not null
+#  dock           :string           not null
+#  invoice_number :string           not null
 #  kind           :enum             not null
+#  status         :enum             not null
 #  warehouse      :enum             not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -34,7 +34,15 @@ class Shipment < ApplicationRecord
 
   enum :kind, { delivery: "delivery", dispatch: "dispatch" }
   enum :warehouse, { "high-tech": "high-tech", healthcare: "healthcare" }
-  enum :internship,
+  enum :status,
        { processing: "processing", finished: "finished" },
        default: "processing"
+
+  validates_presence_of :cargo_checker,
+                        :kind,
+                        :warehouse,
+                        :status,
+                        :customer_id,
+                        :driver_id,
+                        :vehicle_id
 end
