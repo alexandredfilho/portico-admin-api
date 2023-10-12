@@ -69,6 +69,9 @@ RSpec.configure do |config|
   # Use the specified formatter
   config.formatter = :documentation
 
+  # Configure factory bot methods
+  config.include FactoryBot::Syntax::Methods
+
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :rspec
