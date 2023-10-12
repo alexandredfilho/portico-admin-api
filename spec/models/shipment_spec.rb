@@ -30,35 +30,7 @@
 require "rails_helper"
 
 RSpec.describe Shipment, type: :model do
-  let(:driver) do
-    Driver.create(
-      document: "123456789",
-      first_name: "John",
-      last_name: "Doe",
-      shipping_company: "XPTO",
-    )
-  end
-  let(:vehicle) do
-    Vehicle.create(
-      bodywork: "truck",
-      license_plate: "ABC0000",
-      manufacturer: "Volkswagen",
-      sample: "Constelation",
-    )
-  end
-  let(:customer) { Customer.create(title: "Customer") }
-  let(:shipment) do
-    Shipment.new(
-      cargo_checker: "Han Solo",
-      dock: "2",
-      kind: "delivery",
-      invoice_number: "12345",
-      warehouse: "healthcare",
-      customer_id: customer.id,
-      driver_id: driver.id,
-      vehicle_id: vehicle.id,
-    )
-  end
+  let(:shipment) { build_stubbed(:shipment) }
 
   describe ".creating a shipment" do
     context "when all fields are valid" do
@@ -69,128 +41,68 @@ RSpec.describe Shipment, type: :model do
 
     context "when the cargo checker is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: nil,
-            dock: "2",
-            kind: "delivery",
-            invoice_number: "12345",
-            warehouse: "healthcare",
-            customer_id: customer.id,
-            driver_id: driver.id,
-            vehicle_id: vehicle.id,
-          )
+        shipment = build_stubbed(:shipment, cargo_checker: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:cargo_checker][0]).to eq(
+          "can't be blank",
+        )
       end
     end
 
     context "when the kind is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: nil,
-            dock: "2",
-            kind: nil,
-            invoice_number: "12345",
-            warehouse: "healthcare",
-            customer_id: customer.id,
-            driver_id: driver.id,
-            vehicle_id: vehicle.id,
-          )
+        shipment = build_stubbed(:shipment, kind: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:kind][0]).to eq("can't be blank")
       end
     end
 
     context "when the status is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: nil,
-            dock: "2",
-            kind: "delivery",
-            status: nil,
-            invoice_number: "12345",
-            warehouse: "healthcare",
-            customer_id: customer.id,
-            driver_id: driver.id,
-            vehicle_id: vehicle.id,
-          )
+        shipment = build_stubbed(:shipment, status: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:status][0]).to eq("can't be blank")
       end
     end
 
     context "when the warehouse is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: nil,
-            dock: "2",
-            kind: "delivery",
-            invoice_number: "12345",
-            warehouse: nil,
-            customer_id: customer.id,
-            driver_id: driver.id,
-            vehicle_id: vehicle.id,
-          )
+        shipment = build_stubbed(:shipment, warehouse: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:warehouse][0]).to eq("can't be blank")
       end
     end
 
     context "when the customer is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: "Han Solo",
-            dock: "2",
-            kind: "delivery",
-            invoice_number: "12345",
-            warehouse: "healthcare",
-            customer_id: nil,
-            driver_id: driver.id,
-            vehicle_id: vehicle.id,
-          )
+        shipment = build_stubbed(:shipment, customer_id: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:customer_id][0]).to eq(
+          "can't be blank",
+        )
       end
     end
 
     context "when the driver is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: "Han Solo",
-            dock: "2",
-            kind: "delivery",
-            invoice_number: "12345",
-            warehouse: "healthcare",
-            customer_id: customer.id,
-            driver_id: nil,
-            vehicle_id: vehicle.id,
-          )
+        shipment = build_stubbed(:shipment, driver_id: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:driver_id][0]).to eq("can't be blank")
       end
     end
 
     context "when the vehicle is nil" do
       it "should return an error" do
-        shipment =
-          described_class.new(
-            cargo_checker: "Han Solo",
-            dock: "2",
-            kind: "delivery",
-            invoice_number: "12345",
-            warehouse: "healthcare",
-            customer_id: customer.id,
-            driver_id: driver.id,
-            vehicle_id: nil,
-          )
+        shipment = build_stubbed(:shipment, vehicle_id: nil)
 
         expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:vehicle_id][0]).to eq("can't be blank")
       end
     end
 
