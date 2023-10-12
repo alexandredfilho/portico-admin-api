@@ -15,6 +15,8 @@ This project was developed for [Alexandre Domingos Filho](https://github.com/ale
 -  [Ruby@3.0.0](https://www.ruby-lang.org/en/)
 -  [Rails@7.1.0](https://rubyonrails.org/)
 -  [PostgreSQL@1.2.3](https://www.postgresql.org/)
+-  [Devise](https://github.com/heartcombo/devise)
+-  [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt)
 
 ## Pre-requirements
 
@@ -45,3 +47,21 @@ Now it's time to prepare your local database, so run the rails commands:
 Congratulations, the API is ready to use! :tada:
 
 </hr>
+
+## Remember
+
+As this project is API only, you will need to log into the system using <code>Postman</code> or other software to obtain the <code>JWT</code> token before making any changes to the tables!
+
+## Unit and integration tests
+The tests are being built using the following gems:
+
+-  [RSpec-rails](https://github.com/rspec/rspec-rails)
+-  [Shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+
+To run the tests, simply use the commands below:
+
+<i>This command runs all tests:</i>
+> bundle exec rspec .
+
+<i>This other one runs each test individually:</i>
+> bundle exec rspec ./test_path_spec.rb
