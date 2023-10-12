@@ -22,7 +22,7 @@ end
   )
 end
 
-5.times { |d| Customer.create!(description: Faker::Company.name) }
+5.times { |d| Customer.create!(title: Faker::Company.name) }
 
 customer = Customer.all
 customer.each do |c|
@@ -33,7 +33,7 @@ customer.each do |c|
     dock: "12",
     kind: "delivery",
     warehouse: "high-tech",
-    driver_id: 1,
-    vehicle_id: 1,
+    driver_id: Driver.last.id,
+    vehicle_id: Vehicle.last.id,
   )
 end
