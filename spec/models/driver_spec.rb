@@ -14,14 +14,7 @@
 require "rails_helper"
 
 RSpec.describe Driver, type: :model do
-  let(:driver) do
-    described_class.new(
-      document: "123456789",
-      first_name: "Han",
-      last_name: "Solo",
-      shipping_company: "XPTO",
-    )
-  end
+  let(:driver) { FactoryBot.build_stubbed(:driver) }
 
   describe ".creating driver" do
     context "when all fields are valid" do
@@ -33,24 +26,21 @@ RSpec.describe Driver, type: :model do
 
   context "when document is nil" do
     it "should return an error" do
-      driver =
-        described_class.new(
-          document: nil,
-          first_name: "Han",
-          shipping_company: "XPTO",
-        )
+      driver = FactoryBot.build_stubbed(:driver, document: nil)
       expect(driver).to_not be_valid
     end
   end
 
   context "when first name is nil" do
     it "should return an error" do
-      driver =
-        described_class.new(
-          document: "123456789",
-          first_name: nil,
-          shipping_company: "XPTO",
-        )
+      driver = FactoryBot.build_stubbed(:driver, first_name: nil)
+      expect(driver).to_not be_valid
+    end
+  end
+
+  context "when shipping company is nil" do
+    it "should return an error" do
+      driver = FactoryBot.build_stubbed(:driver, shipping_company: nil)
       expect(driver).to_not be_valid
     end
   end
