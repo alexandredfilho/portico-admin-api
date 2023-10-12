@@ -42,6 +42,6 @@ Now it's time to prepare your local database, so run the rails commands:
 
 </hr>
 
-Congratulations, the app is ready to use! :tada:
+Congratulations, the API is ready to use! :tada:
 
 </hr>
