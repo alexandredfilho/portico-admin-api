@@ -46,7 +46,7 @@ RSpec.describe Shipment, type: :model do
       sample: "Constelation",
     )
   end
-  let(:customer) { Customer.create(description: "Customer") }
+  let(:customer) { Customer.create(title: "Customer") }
   let(:shipment) do
     Shipment.new(
       cargo_checker: "Han Solo",

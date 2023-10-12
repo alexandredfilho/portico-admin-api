@@ -2,16 +2,16 @@
 #
 # Table name: customers
 #
-#  id          :bigint           not null, primary key
-#  description :string
-#  status      :enum             default("active"), not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :bigint           not null, primary key
+#  status     :enum             default("active"), not null
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 require "rails_helper"
 
 RSpec.describe Customer, type: :model do
-  let(:customer) { described_class.new(description: "Customer") }
+  let(:customer) { described_class.new(title: "Customer") }
   describe ".creating customer" do
     context "when all fields are valid" do
       it "should create a new customer" do
@@ -19,9 +19,9 @@ RSpec.describe Customer, type: :model do
       end
     end
 
-    context "when description is nil" do
+    context "when title is nil" do
       it "returns an error" do
-        customer = described_class.new(description: nil)
+        customer = described_class.new(title: nil)
         expect(customer).to_not be_valid
       end
     end
