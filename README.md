@@ -36,10 +36,6 @@ Install all backend gems:
 
 > bundle install
 
-Install all frontend dependencies:
-
-> bundle install
-
 Now it's time to prepare your local database, so run the rails commands:
 
 > rails db:create db:migrate db:seed
