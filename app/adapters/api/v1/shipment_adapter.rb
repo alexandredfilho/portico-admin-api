@@ -24,7 +24,7 @@ module Api
       private
 
       def build_customer(customer_id)
-        Customer.select(:id, :description, :status).where(id: customer_id)
+        Customer.select(:id, :title, :status).where(id: customer_id)
       end
 
       def build_driver(driver_id)

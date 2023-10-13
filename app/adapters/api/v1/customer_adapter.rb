@@ -8,7 +8,7 @@ module Api
       def as_json(*_args)
         {
           id: @customer.id,
-          description: @customer.description,
+          title: @customer.title,
           status: @customer.status,
           created_at: @customer.created_at,
           updated_at: @customer.updated_at,
