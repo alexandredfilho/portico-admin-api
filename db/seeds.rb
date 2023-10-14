@@ -22,7 +22,7 @@ end
   )
 end
 
-5.times { |_d| Customer.create!(title: Faker::Company.name) }
+5.times { |_d| Customer.create!(title: Faker::Company.name, status: 'active') }
 
 customer = Customer.all
 customer.each do |c|
