@@ -104,9 +104,9 @@ end
 #  cargo_checker  :string           not null
 #  dock           :string           not null
 #  invoice_number :string           not null
-#  kind           :text             not null
-#  status         :text             not null
-#  warehouse      :text             not null
+#  kind           :string
+#  status         :string
+#  warehouse      :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  customer_id    :bigint           not null
