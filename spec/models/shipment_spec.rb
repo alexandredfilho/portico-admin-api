@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Shipment, type: :model do
@@ -10,14 +12,12 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
-    context 'when the cargo checker is nil' do
+    context 'when the invoice number is nil' do
       it 'should return an error' do
-        shipment = build_stubbed(:shipment, cargo_checker: nil)
+        shipment = build_stubbed(:shipment, invoice_number: nil)
 
         expect(shipment).to_not be_valid
-        expect(shipment.errors.messages[:cargo_checker][0]).to eq(
-          "can't be blank"
-        )
+        expect(shipment.errors.messages[:invoice_number][0]).to eq("can't be blank")
       end
     end
 
@@ -27,15 +27,6 @@ RSpec.describe Shipment, type: :model do
 
         expect(shipment).to_not be_valid
         expect(shipment.errors.messages[:kind][0]).to eq("can't be blank")
-      end
-    end
-
-    context 'when the status is nil' do
-      it 'should return an error' do
-        shipment = build_stubbed(:shipment, status: nil)
-
-        expect(shipment).to_not be_valid
-        expect(shipment.errors.messages[:status][0]).to eq("can't be blank")
       end
     end
 
@@ -77,19 +68,28 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
+    context 'when the status is nil' do
+      it 'should return an error' do
+        shipment = build_stubbed(:shipment, status: nil)
+
+        expect(shipment).to_not be_valid
+        expect(shipment.errors.messages[:status][0]).to eq("can't be blank")
+      end
+    end
+
     describe '.associations' do
       it 'belongs to a driver' do
-        association = described_class.reflect_on_association(:driver)
+        described_class.reflect_on_association(:driver)
         expect { should belongs_to(:driver) }
       end
 
       it 'belongs to a vehicle' do
-        association = described_class.reflect_on_association(:vehicle)
+        described_class.reflect_on_association(:vehicle)
         expect { should belongs_to(:vehicle) }
       end
 
       it 'belongs to a customer' do
-        association = described_class.reflect_on_association(:customer)
+        described_class.reflect_on_association(:customer)
         expect { should belongs_to(:customer) }
       end
     end
