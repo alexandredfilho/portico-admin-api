@@ -31,8 +31,9 @@ customer.each do |c|
     invoice_number: Faker::Invoice.reference,
     cargo_checker: Faker::Name.name,
     dock: "12",
-    kind: "delivery",
-    warehouse: "high-tech",
+    kind: "receive",
+    status: "pending",
+    warehouse: "high_tech",
     driver_id: Driver.last.id,
     vehicle_id: Vehicle.last.id,
   )
