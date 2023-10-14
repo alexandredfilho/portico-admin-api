@@ -10,21 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_13_200748) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_13_195639) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "bodywork", ["motorcycle", "car", "van", "truck"]
-  create_enum "internship", ["processing", "finished"]
-  create_enum "kind", ["delivery", "dispatch"]
   create_enum "status", ["active", "inactive"]
-  create_enum "warehouse", ["high-tech", "healthcare"]
 
   create_table "customers", force: :cascade do |t|
     t.string "title"
-    t.enum "status", default: "active", null: false, enum_type: "status"
+    t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,11 +43,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_13_200748) do
     t.string "invoice_number", null: false
     t.string "cargo_checker", null: false
     t.string "dock", null: false
+    t.string "kind"
+    t.string "warehouse"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "kind", null: false
-    t.text "warehouse", null: false
-    t.text "status", null: false
     t.index ["customer_id"], name: "index_shipments_on_customer_id"
     t.index ["driver_id"], name: "index_shipments_on_driver_id"
     t.index ["vehicle_id"], name: "index_shipments_on_vehicle_id"

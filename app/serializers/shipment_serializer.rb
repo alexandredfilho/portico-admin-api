@@ -1,18 +1,11 @@
 # frozen_string_literal: true
 
-FactoryBot.define do
-  factory :shipment do
-    association :customer, factory: :customer
-    association :driver, factory: :driver
-    association :vehicle, factory: :vehicle
-
-    invoice_number { '12345' }
-    kind { 'receive' }
-    warehouse { 'high_tech' }
-    dock { '2' }
-    cargo_checker { 'John Doe' }
-    status { 'pending' }
-  end
+#
+# This model is responsible to create new instances of Shipment
+#
+class ShipmentSerializer < ActiveModel::Serializer
+  attributes :id, :invoice_number, :dock, :kind, :warehouse, :customer, :vehicle, :driver, :created_at,
+             :updated_at, :status
 end
 
 # == Schema Information

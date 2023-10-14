@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-FactoryBot.define do
-  factory :customer do
-    title { 'Company Name' }
-    status { 'active' }
-  end
+#
+# This serializer is used to retrieve the customer attributes
+#
+class CustomerSerializer < ActiveModel::Serializer
+  attributes :id, :title, :status, :created_at, :updated_at
 end
 
 # == Schema Information

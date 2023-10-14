@@ -1,24 +1,22 @@
+# frozen_string_literal: true
+
 module Api
   module V1
+    #
+    # Controller responsible for managing driver
+    #
     class VehiclesController < ApplicationController
       before_action :authenticate_user!
       before_action :set_vehicle, only: %i[show update destroy]
 
       def index
-        @vehicles =
-          Vehicle.select(
-            :id,
-            :manufacturer,
-            :sample,
-            :license_plate,
-            :bodywork
-          ).order(:manufacturer)
+        @vehicles = Vehicle.all.order(:manufacturer)
 
-        render json: @vehicles
+        render json: @vehicles, each_serializer: VehicleSerializer
       end
 
       def show
-        render json: ::Api::V1::VehicleAdapter.new(@vehicle).as_json
+        render json: @vehicle, serializer: VehicleSerializer
       end
 
       def create
@@ -30,7 +28,7 @@ module Api
 
       def update
         @vehicle.update(vehicle_params)
-        render json: @vehicle
+        render json: @vehicle, serializer: VehicleSerializer
       end
 
       def destroy

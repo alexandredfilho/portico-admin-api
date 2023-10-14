@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 #
-# This model is responsible to create new instances of Vehicles
+# This serializer is used to retrieve the vehicle attributes
 #
-class Vehicle < ApplicationRecord
-  has_many :shipments
-  has_many :drivers, through: :shipments
-
-  enum :bodywork,
-       { motorcycle: 'motorcycle', car: 'car', van: 'van', truck: 'truck' }
+class VehicleSerializer < ActiveModel::Serializer
+  attributes :id, :manufacturer, :sample, :license_plate, :bodywork, :created_at, :updated_at, :updated_at
 end
 
 # == Schema Information
