@@ -6,6 +6,7 @@ ruby '3.0.0'
 gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
+gem 'cancancan'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'devise-jwt'
