@@ -4,11 +4,11 @@ FactoryBot.define do
     association :driver, factory: :driver
     association :vehicle, factory: :vehicle
 
-    cargo_checker { "John Doe" }
-    dock { "2" }
-    invoice_number { "12345" }
-    kind { "delivery" }
-    warehouse { "high-tech" }
+    cargo_checker { 'John Doe' }
+    dock { '2' }
+    invoice_number { '12345' }
+    kind { 'delivery' }
+    warehouse { 'high-tech' }
   end
 end
 

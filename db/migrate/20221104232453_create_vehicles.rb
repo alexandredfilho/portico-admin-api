@@ -5,7 +5,7 @@ class CreateVehicles < ActiveRecord::Migration[7.1]
       t.string :manufacturer
       t.string :sample
       t.string :license_plate
-      t.enum(:bodywork, enum_type: "bodywork", null: false)
+      t.enum(:bodywork, enum_type: 'bodywork', null: false)
 
       t.timestamps
     end

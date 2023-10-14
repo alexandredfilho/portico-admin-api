@@ -11,7 +11,7 @@ module Api
           title: @customer.title,
           status: @customer.status,
           created_at: @customer.created_at,
-          updated_at: @customer.updated_at,
+          updated_at: @customer.updated_at
         }
       end
     end

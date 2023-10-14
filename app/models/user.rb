@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: self
 
-  enum role: %i[user agent receiver shipper admin]
+  enum role: { user: 0, agent: 1, receiver: 2, shipper: 3, admin: 4 }
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :customer do
-    title { "Company Name" }
+    title { 'Company Name' }
     status {}
   end
 end

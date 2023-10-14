@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -12,7 +12,7 @@ module PorticoAdminApi
     config.load_defaults 7.1
 
     # This also configures session_options for use below
-    config.session_store :cookie_store, key: "_interslice_session"
+    config.session_store :cookie_store, key: '_interslice_session'
 
     # Require for all session management (regardless of session_store)
     config.middleware.use ActionDispatch::Cookies

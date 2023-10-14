@@ -1,8 +1,8 @@
 class Customer < ApplicationRecord
   has_many :shipments
-  validates_presence_of :title
+  validates :title, presence: true
 
-  enum :status, { active: "active", inactive: "inactive" }, default: "active"
+  enum :status, { active: 'active', inactive: 'inactive' }, default: 'active'
 end
 
 # == Schema Information

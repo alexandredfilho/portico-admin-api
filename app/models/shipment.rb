@@ -7,26 +7,26 @@ class Shipment < ApplicationRecord
   belongs_to :customer
   has_paper_trail
 
-  enum kind: { receive: "receive", dispatch: "dispatch" }
-  enum warehouse: { high_tech: "high_tech", healthcare: "healthcare" }
-  enum status: { pending: "pending", ready: "ready" }
+  enum kind: { receive: 'receive', dispatch: 'dispatch' }
+  enum warehouse: { high_tech: 'high_tech', healthcare: 'healthcare' }
+  enum status: { pending: 'pending', ready: 'ready' }
 
-  validates_presence_of :cargo_checker, :kind, :warehouse, :status
+  validates :cargo_checker, :kind, :warehouse, :status, presence: true
 
   validate(if: ->(model) { model.pending? }) do
-    validates_presence_of :invoice_number, :kind, :warehouse
+    validates :invoice_number, :kind, :warehouse, presence: true
   end
 
   validate(if: ->(model) { model.ready? }) do
-    validates_presence_of :invoice_number,
-                          :kind,
-                          :warehouse,
-                          :cargo_checker,
-                          :kind
+    validates :invoice_number,
+              :kind,
+              :warehouse,
+              :cargo_checker,
+              :kind, presence: true
   end
 
   after_update_commit(
-    if: ->(model) { model.dispatch? && model.ready? },
+    if: ->(model) { model.dispatch? && model.ready? }
   ) { |model| DeliveriesMailer.delivery_completed(model).deliver_now }
 end
 

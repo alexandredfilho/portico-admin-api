@@ -11,7 +11,7 @@ module Api
             :manufacturer,
             :sample,
             :license_plate,
-            :bodywork,
+            :bodywork
           ).order(:manufacturer)
 
         render json: @vehicles
@@ -48,7 +48,7 @@ module Api
           :manufacturer,
           :sample,
           :bodywork,
-          :license_plate,
+          :license_plate
         )
       end
     end

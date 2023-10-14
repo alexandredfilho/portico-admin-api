@@ -13,7 +13,7 @@ module Api
           license_plate: @vehicle.license_plate,
           bodywork: @vehicle.bodywork,
           created_at: @vehicle.created_at,
-          updated_at: @vehicle.updated_at,
+          updated_at: @vehicle.updated_at
         }
       end
     end

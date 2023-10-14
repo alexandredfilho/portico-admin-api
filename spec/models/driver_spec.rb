@@ -1,18 +1,18 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Driver, type: :model do
   let(:driver) { build_stubbed(:driver) }
 
-  describe ".creating driver" do
-    context "when all fields are valid" do
-      it "should create a new driver" do
+  describe '.creating driver' do
+    context 'when all fields are valid' do
+      it 'should create a new driver' do
         expect(driver).to be_valid
       end
     end
   end
 
-  context "when document is nil" do
-    it "should return an error" do
+  context 'when document is nil' do
+    it 'should return an error' do
       driver = build_stubbed(:driver, document: nil)
 
       expect(driver).to_not be_valid
@@ -20,8 +20,8 @@ RSpec.describe Driver, type: :model do
     end
   end
 
-  context "when first name is nil" do
-    it "should return an error" do
+  context 'when first name is nil' do
+    it 'should return an error' do
       driver = build_stubbed(:driver, first_name: nil)
 
       expect(driver).to_not be_valid
@@ -29,20 +29,20 @@ RSpec.describe Driver, type: :model do
     end
   end
 
-  context "when shipping company is nil" do
-    it "should return an error" do
+  context 'when shipping company is nil' do
+    it 'should return an error' do
       driver = build_stubbed(:driver, shipping_company: nil)
       expect(driver).to_not be_valid
     end
   end
 
-  describe ".associations" do
-    it "has many shipments" do
+  describe '.associations' do
+    it 'has many shipments' do
       association = described_class.reflect_on_association(:shipment)
       expect { should has_many(:shipment) }
     end
 
-    it "has many vehicles" do
+    it 'has many vehicles' do
       association = described_class.reflect_on_association(:vehicles)
       expect { should has_many(:vehicles) }
     end

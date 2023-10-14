@@ -11,9 +11,9 @@ class CreateShipments < ActiveRecord::Migration[7.1]
       t.string :invoice_number
       t.string :cargo_checker
       t.string :dock
-      t.enum(:kind, enum_type: "kind", null: false)
-      t.enum(:warehouse, enum_type: "warehouse", null: false)
-      t.enum(:internship, enum_type: "internship", null: false)
+      t.enum(:kind, enum_type: 'kind', null: false)
+      t.enum(:warehouse, enum_type: 'warehouse', null: false)
+      t.enum(:internship, enum_type: 'internship', null: false)
 
       t.timestamps
     end

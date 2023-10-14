@@ -3,12 +3,12 @@ class Driver < ApplicationRecord
   has_many :vehicles, through: :shipments
   before_save :set_full_name
 
-  validates_presence_of :document, :first_name, :shipping_company
+  validates :document, :first_name, :shipping_company, presence: true
 
   private
 
   def set_full_name
-    self.full_name = "#{self.first_name} #{self.last_name}".strip
+    self.full_name = "#{first_name} #{last_name}".strip
   end
 end
 

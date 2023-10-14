@@ -17,7 +17,7 @@ module Api
           vehicle: build_vehicle(@shipment.vehicle_id),
           internship: @shipment.internship,
           created_at: @shipment.created_at,
-          updated_at: @shipment.updated_at,
+          updated_at: @shipment.updated_at
         }
       end
 
@@ -37,7 +37,7 @@ module Api
           :manufacturer,
           :sample,
           :license_plate,
-          :bodywork,
+          :bodywork
         ).where(id: vehicle_id)
       end
     end

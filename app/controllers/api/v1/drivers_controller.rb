@@ -12,7 +12,7 @@ module Api
             :first_name,
             :last_name,
             :document,
-            :shipping_company,
+            :shipping_company
           ).order(:first_name)
 
         render json: @drivers
@@ -49,7 +49,7 @@ module Api
           :first_name,
           :last_name,
           :document,
-          :shipping_company,
+          :shipping_company
         )
       end
     end

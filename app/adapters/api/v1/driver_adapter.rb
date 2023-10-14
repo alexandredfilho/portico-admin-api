@@ -14,7 +14,7 @@ module Api
           document: @driver.document,
           shipping_company: @driver.shipping_company,
           created_at: @driver.created_at,
-          updated_at: @driver.updated_at,
+          updated_at: @driver.updated_at
         }
       end
     end

@@ -7,20 +7,20 @@ module Api
       def index
         @shipments =
           Shipment
-            .select(
-              :id,
-              :customer_id,
-              :invoice_number,
-              :cargo_checker,
-              :dock,
-              :kind,
-              :warehouse,
-              :driver_id,
-              :vehicle_id,
-              :internship,
-            )
-            .includes(:driver, :vehicle, :customer)
-            .order(:created_at)
+          .select(
+            :id,
+            :customer_id,
+            :invoice_number,
+            :cargo_checker,
+            :dock,
+            :kind,
+            :warehouse,
+            :driver_id,
+            :vehicle_id,
+            :internship
+          )
+          .includes(:driver, :vehicle, :customer)
+          .order(:created_at)
 
         render json: @shipments
       end
@@ -62,7 +62,7 @@ module Api
           :warehouse,
           :driver_id,
           :vehicle_id,
-          :internship,
+          :internship
         )
       end
     end
