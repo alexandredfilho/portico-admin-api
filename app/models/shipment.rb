@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # A shipment is a relationship between customer, driver and an invoice
 #
@@ -11,19 +13,19 @@ class Shipment < ApplicationRecord
   enum warehouse: { high_tech: 'high_tech', healthcare: 'healthcare' }
   enum status: { pending: 'pending', ready: 'ready' }
 
-  validates :cargo_checker, :kind, :warehouse, :status, presence: true
+  validates :invoice_number, :kind, :warehouse, :customer_id, :driver_id, :vehicle_id, :status, presence: true
 
-  validate(if: ->(model) { model.pending? }) do
-    validates :invoice_number, :kind, :warehouse, presence: true
-  end
+  # validate(if: ->(event) { event.pending? }) do
+  #   validates :invoice_number, :kind, :warehouse, presence: true
+  # end
 
-  validate(if: ->(model) { model.ready? }) do
-    validates :invoice_number,
-              :kind,
-              :warehouse,
-              :cargo_checker,
-              :kind, presence: true
-  end
+  # validate(if: ->(model) { model.ready? }) do
+  #   validates :invoice_number,
+  #             :kind,
+  #             :warehouse,
+  #             :cargo_checker,
+  #             :kind, presence: true
+  # end
 
   after_update_commit(
     if: ->(model) { model.dispatch? && model.ready? }
