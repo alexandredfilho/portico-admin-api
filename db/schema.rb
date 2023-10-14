@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_12_131231) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_13_200748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,11 +46,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_12_131231) do
     t.string "invoice_number", null: false
     t.string "cargo_checker", null: false
     t.string "dock", null: false
-    t.enum "kind", null: false, enum_type: "kind"
-    t.enum "warehouse", null: false, enum_type: "warehouse"
-    t.enum "status", null: false, enum_type: "internship"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "kind", null: false
+    t.text "warehouse", null: false
+    t.text "status", null: false
     t.index ["customer_id"], name: "index_shipments_on_customer_id"
     t.index ["driver_id"], name: "index_shipments_on_driver_id"
     t.index ["vehicle_id"], name: "index_shipments_on_vehicle_id"
@@ -78,6 +78,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_12_131231) do
     t.enum "bodywork", null: false, enum_type: "bodywork"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.jsonb "object"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "object_changes"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
   add_foreign_key "shipments", "customers"
