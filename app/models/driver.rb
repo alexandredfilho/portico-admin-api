@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+#
+# This model is responsible to create new instances of Drivers
+#
 class Driver < ApplicationRecord
   has_many :shipments
   has_many :vehicles, through: :shipments
@@ -8,7 +13,7 @@ class Driver < ApplicationRecord
   private
 
   def set_full_name
-    self.full_name = "#{first_name} #{last_name}".strip
+    self.full_name = "#{first_name} #{last_name}"
   end
 end
 
