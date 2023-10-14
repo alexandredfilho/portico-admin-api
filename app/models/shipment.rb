@@ -1,3 +1,35 @@
+#
+# A shipment is a relationship between customer, driver and an invoice
+#
+class Shipment < ApplicationRecord
+  belongs_to :driver
+  belongs_to :vehicle
+  belongs_to :customer
+  has_paper_trail
+
+  enum kind: { receive: "receive", dispatch: "dispatch" }
+  enum warehouse: { high_tech: "high_tech", healthcare: "healthcare" }
+  enum status: { pending: "pending", ready: "ready" }
+
+  validates_presence_of :cargo_checker, :kind, :warehouse, :status
+
+  validate(if: ->(model) { model.pending? }) do
+    validates_presence_of :invoice_number, :kind, :warehouse
+  end
+
+  validate(if: ->(model) { model.ready? }) do
+    validates_presence_of :invoice_number,
+                          :kind,
+                          :warehouse,
+                          :cargo_checker,
+                          :kind
+  end
+
+  after_update_commit(
+    if: ->(model) { model.dispatch? && model.ready? },
+  ) { |model| DeliveriesMailer.delivery_completed(model).deliver_now }
+end
+
 # == Schema Information
 #
 # Table name: shipments
@@ -6,9 +38,9 @@
 #  cargo_checker  :string           not null
 #  dock           :string           not null
 #  invoice_number :string           not null
-#  kind           :enum             not null
-#  status         :enum             not null
-#  warehouse      :enum             not null
+#  kind           :text             not null
+#  status         :text             not null
+#  warehouse      :text             not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  customer_id    :bigint           not null
@@ -27,22 +59,3 @@
 #  fk_rails_...  (driver_id => drivers.id)
 #  fk_rails_...  (vehicle_id => vehicles.id)
 #
-class Shipment < ApplicationRecord
-  belongs_to :driver
-  belongs_to :vehicle
-  belongs_to :customer
-
-  enum :kind, { delivery: "delivery", dispatch: "dispatch" }
-  enum :warehouse, { "high-tech": "high-tech", healthcare: "healthcare" }
-  enum :status,
-       { processing: "processing", finished: "finished" },
-       default: "processing"
-
-  validates_presence_of :cargo_checker,
-                        :kind,
-                        :warehouse,
-                        :status,
-                        :customer_id,
-                        :driver_id,
-                        :vehicle_id
-end
