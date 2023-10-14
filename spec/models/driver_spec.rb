@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Driver, type: :model do
@@ -32,18 +34,28 @@ RSpec.describe Driver, type: :model do
   context 'when shipping company is nil' do
     it 'should return an error' do
       driver = build_stubbed(:driver, shipping_company: nil)
+
       expect(driver).to_not be_valid
+    end
+  end
+
+  context 'when a new driver is created' do
+    it 'should return the full name' do
+      driver = create(:driver)
+
+      expect(driver).to be_valid
+      expect(driver.full_name).to eq([driver.first_name, driver.last_name].join(' '))
     end
   end
 
   describe '.associations' do
     it 'has many shipments' do
-      association = described_class.reflect_on_association(:shipment)
+      described_class.reflect_on_association(:shipment)
       expect { should has_many(:shipment) }
     end
 
     it 'has many vehicles' do
-      association = described_class.reflect_on_association(:vehicles)
+      described_class.reflect_on_association(:vehicles)
       expect { should has_many(:vehicles) }
     end
   end
