@@ -1,3 +1,12 @@
+FactoryBot.define do
+  factory :driver do
+    document { "123456789" }
+    first_name { "Han" }
+    last_name { "Solo" }
+    shipping_company { "XPTO Log" }
+  end
+end
+
 # == Schema Information
 #
 # Table name: drivers
@@ -11,11 +20,3 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
-FactoryBot.define do
-  factory :driver do
-    document { "123456789" }
-    first_name { "Han" }
-    last_name { "Solo" }
-    shipping_company { "XPTO Log" }
-  end
-end

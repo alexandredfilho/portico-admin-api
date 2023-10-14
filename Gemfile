@@ -8,20 +8,22 @@ gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "devise"
 gem "devise-jwt"
+gem "haml-rails", "~> 2.0"
+gem "paper_trail"
 gem "pg", "~> 1.4", ">= 1.4.4"
 gem "prettier"
 gem "puma", ">= 5.0"
 gem "rails", github: "rails/rails", branch: "main"
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 gem "rack-cors"
 
 group :development, :test do
   gem "awesome_print"
   gem "pry"
-  gem "debug", platforms: %i[ mri windows ]
+  gem "debug", platforms: %i[mri windows]
   gem "faker"
-  gem 'annotate'
-  gem 'shoulda-matchers', '~> 5.0'
+  gem "annotate"
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 group :test do

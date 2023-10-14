@@ -1,3 +1,10 @@
+FactoryBot.define do
+  factory :customer do
+    title { "Company Name" }
+    status {}
+  end
+end
+
 # == Schema Information
 #
 # Table name: customers
@@ -8,9 +15,3 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-FactoryBot.define do
-  factory :customer do
-    title { "Company Name" }
-    status {}
-  end
-end

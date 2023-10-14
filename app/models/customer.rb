@@ -1,3 +1,10 @@
+class Customer < ApplicationRecord
+  has_many :shipments
+  validates_presence_of :title
+
+  enum :status, { active: "active", inactive: "inactive" }, default: "active"
+end
+
 # == Schema Information
 #
 # Table name: customers
@@ -8,9 +15,3 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Customer < ApplicationRecord
-  has_many :shipments
-  validates_presence_of :title
-
-  enum :status, { active: "active", inactive: "inactive" }, default: "active"
-end

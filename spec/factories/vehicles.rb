@@ -1,3 +1,12 @@
+FactoryBot.define do
+  factory :vehicle do
+    bodywork { "truck" }
+    license_plate { "ABC1234" }
+    manufacturer { "Volkswagen" }
+    sample { "Constelation" }
+  end
+end
+
 # == Schema Information
 #
 # Table name: vehicles
@@ -10,11 +19,3 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-FactoryBot.define do
-  factory :vehicle do
-    bodywork { "truck" }
-    license_plate { "ABC1234" }
-    manufacturer { "Volkswagen" }
-    sample { "Constelation" }
-  end
-end
