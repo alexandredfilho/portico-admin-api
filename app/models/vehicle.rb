@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+#
+# This model is responsible to create new instances of Vehicles
+#
 class Vehicle < ApplicationRecord
   has_many :shipments
   has_many :drivers, through: :shipments
