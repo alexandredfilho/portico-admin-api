@@ -1,3 +1,15 @@
+one:
+  first_name: MyString
+  last_name: MyString
+  document: MyString
+  shipping_company: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  document: MyString
+  shipping_company: MyString
+
 # == Schema Information
 #
 # Table name: drivers
@@ -11,15 +23,3 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
-
-one:
-  first_name: MyString
-  last_name: MyString
-  document: MyString
-  shipping_company: MyString
-
-two:
-  first_name: MyString
-  last_name: MyString
-  document: MyString
-  shipping_company: MyString

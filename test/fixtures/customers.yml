@@ -1,3 +1,9 @@
+one:
+  description: MyString
+
+two:
+  description: MyString
+
 # == Schema Information
 #
 # Table name: customers
@@ -8,9 +14,3 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
-one:
-  description: MyString
-
-two:
-  description: MyString

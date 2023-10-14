@@ -1,13 +1,3 @@
-# == Schema Information
-#
-# Table name: customers
-#
-#  id         :bigint           not null, primary key
-#  status     :enum             default("active"), not null
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
 require "rails_helper"
 
 RSpec.describe Customer, type: :model do
@@ -44,3 +34,14 @@ RSpec.describe Customer, type: :model do
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: customers
+#
+#  id         :bigint           not null, primary key
+#  status     :enum             default("active"), not null
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

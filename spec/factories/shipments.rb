@@ -1,3 +1,17 @@
+FactoryBot.define do
+  factory :shipment do
+    association :customer, factory: :customer
+    association :driver, factory: :driver
+    association :vehicle, factory: :vehicle
+
+    cargo_checker { "John Doe" }
+    dock { "2" }
+    invoice_number { "12345" }
+    kind { "delivery" }
+    warehouse { "high-tech" }
+  end
+end
+
 # == Schema Information
 #
 # Table name: shipments
@@ -6,9 +20,9 @@
 #  cargo_checker  :string           not null
 #  dock           :string           not null
 #  invoice_number :string           not null
-#  kind           :enum             not null
-#  status         :enum             not null
-#  warehouse      :enum             not null
+#  kind           :text             not null
+#  status         :text             not null
+#  warehouse      :text             not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  customer_id    :bigint           not null
@@ -27,16 +41,3 @@
 #  fk_rails_...  (driver_id => drivers.id)
 #  fk_rails_...  (vehicle_id => vehicles.id)
 #
-FactoryBot.define do
-  factory :shipment do
-    association :customer, factory: :customer
-    association :driver, factory: :driver
-    association :vehicle, factory: :vehicle
-
-    cargo_checker { "John Doe" }
-    dock { "2" }
-    invoice_number { "12345" }
-    kind { "delivery" }
-    warehouse { "high-tech" }
-  end
-end
