@@ -1,25 +1,22 @@
+# frozen_string_literal: true
+
 module Api
   module V1
+    #
+    # Controller responsible for managing driver
+    #
     class DriversController < ApplicationController
       before_action :authenticate_user!
       before_action :set_driver, only: %i[show update destroy]
 
       def index
-        @drivers =
-          Driver.select(
-            :id,
-            :full_name,
-            :first_name,
-            :last_name,
-            :document,
-            :shipping_company
-          ).order(:first_name)
+        @drivers = Driver.all.order(:first_name)
 
-        render json: @drivers
+        render json: @drivers, each_serializer: DriverSerializer
       end
 
       def show
-        render json: ::Api::V1::DriverAdapter.new(@driver).as_json
+        render json: @driver, serializer: DriverSerializer
       end
 
       def create
@@ -31,7 +28,7 @@ module Api
 
       def update
         @driver.update(driver_params)
-        render json: @driver
+        render json: @driver, serializer: DriverSerializer
       end
 
       def destroy

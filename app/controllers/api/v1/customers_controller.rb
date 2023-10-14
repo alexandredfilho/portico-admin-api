@@ -1,17 +1,22 @@
+# frozen_string_literal: true
+
 module Api
   module V1
+    #
+    # Controller responsible for managing customer
+    #
     class CustomersController < ApplicationController
       before_action :authenticate_user!
       before_action :set_customer, only: %i[show update destroy]
 
       def index
-        @customers = Customer.select(:id, :description, :status)
+        @customers = Customer.all
 
-        render json: @customers
+        render json: @customers, each_serializer: CustomerSerializer
       end
 
       def show
-        render json: ::Api::V1::CustomerAdapter.new(@customer).as_json
+        render json: @customer, serializer: CustomerSerializer
       end
 
       def create
@@ -23,7 +28,7 @@ module Api
 
       def update
         @customer.update(customer_params)
-        render json: @customer
+        render json: @customer, serializer: CustomerSerializer
       end
 
       def destroy
