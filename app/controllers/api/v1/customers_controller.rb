@@ -22,7 +22,7 @@ module Api
 
       def create
         @customer = Customer.new(customer_params)
-        authorize! @customer.save!
+        @customer.save!
 
         render json: @customer, status: :created
       end
