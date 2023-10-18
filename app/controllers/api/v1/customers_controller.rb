@@ -8,6 +8,7 @@ module Api
     class CustomersController < ApplicationController
       before_action :authenticate_user!
       before_action :set_customer, only: %i[show update destroy]
+      load_and_authorize_resource
 
       def index
         @customers = Customer.all
@@ -21,7 +22,7 @@ module Api
 
       def create
         @customer = Customer.new(customer_params)
-        @customer.save!
+        authorize! @customer.save!
 
         render json: @customer, status: :created
       end
