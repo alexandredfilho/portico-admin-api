@@ -1,3 +1,7 @@
-Deliveries#delivery_completed
+Shipment Completed for: <%= @shipment.customer.title %>
 
-<%= @greeting %>, find me in app/views/deliveries_mailer/delivery_completed.text.erb
+Driver Details:
+Driver Name: <%= @shipment.driver.full_name %>
+
+Vehicle Details:
+Manufacturer: <%= @shipment.vehicle.manufacturer %>
