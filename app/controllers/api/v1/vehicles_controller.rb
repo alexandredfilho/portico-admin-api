@@ -3,11 +3,12 @@
 module Api
   module V1
     #
-    # Controller responsible for managing driver
+    # Controller responsible for managing vehicle
     #
     class VehiclesController < ApplicationController
       before_action :authenticate_user!
       before_action :set_vehicle, only: %i[show update destroy]
+      load_and_authorize_resource
 
       def index
         @vehicles = Vehicle.all.order(:manufacturer)

@@ -8,6 +8,7 @@ module Api
     class ShipmentsController < ApplicationController
       before_action :authenticate_user!
       before_action :set_shipment, only: %i[show update destroy]
+      load_and_authorize_resource
 
       def index
         @shipments = Shipment.all.includes(:driver, :vehicle, :customer).order(:created_at)

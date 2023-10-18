@@ -8,6 +8,7 @@ module Api
     class DriversController < ApplicationController
       before_action :authenticate_user!
       before_action :set_driver, only: %i[show update destroy]
+      load_and_authorize_resource
 
       def index
         @drivers = Driver.all.order(:first_name)

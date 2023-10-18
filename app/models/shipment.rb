@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 #
-# A shipment is a relationship between customer, driver and an invoice
+# This model is responsible to create new instances of Shipment
 #
 class Shipment < ApplicationRecord
   belongs_to :driver

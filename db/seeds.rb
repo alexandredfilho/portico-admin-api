@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 User.create!(
   email: 'admin@portico.com',
+  role: 'admin',
   password: 'VerySecure@2022',
   password_confirmation: 'VerySecure@2022'
 )
