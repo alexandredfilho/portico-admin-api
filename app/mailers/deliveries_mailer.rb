@@ -9,6 +9,6 @@ class DeliveriesMailer < ApplicationMailer
   def delivery_completed(shipment)
     @shipment = shipment
 
-    mail to: 'to@example.org'
+    mail to: 'to@example.org', subject: "New shipment for shipping is ready"
   end
 end

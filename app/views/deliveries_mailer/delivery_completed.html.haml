@@ -1,2 +1,12 @@
-%h1 Deliveries#delivery_completed
-%p= @shipment.id
+%h1{style: "text-align: center"}
+  %strong Shipment Completed for: #{@shipment.customer.title}
+
+%h3 Driver Details:
+%p
+  %strong Driver Name:
+  = @shipment.driver.full_name
+
+%h3 Vehicle Details:
+%p
+  %strong Manufacturer:
+  = @shipment.vehicle.manufacturer
