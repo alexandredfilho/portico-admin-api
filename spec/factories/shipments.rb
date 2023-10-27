@@ -11,6 +11,7 @@ FactoryBot.define do
     warehouse { 'high_tech' }
     dock { '2' }
     cargo_checker { 'John Doe' }
+    volume_quantity { 2 }
     status { 'pending' }
   end
 end
@@ -19,18 +20,19 @@ end
 #
 # Table name: shipments
 #
-#  id             :bigint           not null, primary key
-#  cargo_checker  :string           not null
-#  dock           :string           not null
-#  invoice_number :string           not null
-#  kind           :string
-#  status         :string
-#  warehouse      :string
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  customer_id    :bigint           not null
-#  driver_id      :bigint           not null
-#  vehicle_id     :bigint           not null
+#  id              :bigint           not null, primary key
+#  cargo_checker   :string           not null
+#  dock            :string           not null
+#  invoice_number  :string           not null
+#  kind            :string
+#  status          :string
+#  volume_quantity :integer          not null
+#  warehouse       :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  customer_id     :bigint           not null
+#  driver_id       :bigint           not null
+#  vehicle_id      :bigint           not null
 #
 # Indexes
 #
