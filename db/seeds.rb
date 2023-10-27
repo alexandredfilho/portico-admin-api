@@ -33,6 +33,7 @@ customer.each do |c|
     customer_id: c.id,
     invoice_number: Faker::Invoice.reference,
     cargo_checker: Faker::Name.name,
+    volume_quantity: 2,
     dock: '12',
     kind: 'receive',
     status: 'pending',
