@@ -5,7 +5,7 @@
 #
 class ShipmentSerializer < ActiveModel::Serializer
   attributes :id, :invoice_number, :dock, :kind, :warehouse, :cargo_checker, :volume_quantity, :customer, :vehicle,
-             :driver, :created_at, :updated_at, :status
+             :driver, :created_at, :updated_at, :departure_time, :status
 end
 
 # == Schema Information
@@ -14,6 +14,7 @@ end
 #
 #  id              :bigint           not null, primary key
 #  cargo_checker   :string           not null
+#  departure_time  :string
 #  dock            :string           not null
 #  invoice_number  :string           not null
 #  kind            :string

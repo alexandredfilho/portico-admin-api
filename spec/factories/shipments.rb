@@ -22,6 +22,7 @@ end
 #
 #  id              :bigint           not null, primary key
 #  cargo_checker   :string           not null
+#  departure_time  :string
 #  dock            :string           not null
 #  invoice_number  :string           not null
 #  kind            :string

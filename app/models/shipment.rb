@@ -25,8 +25,13 @@ class Shipment < ApplicationRecord
   #             :warehouse,
   #             :cargo_checker,
   #             :volume_quantity,
+  #             :departure_time,
   #             :kind, presence: true
   # end
+
+  before_update(
+    if: ->(model) { model.ready? }
+  ) { |model| model.departure_time = DateTime.now.strftime('%H:%M:%S') }
 
   after_update_commit(
     if: ->(model) { model.dispatch? && model.ready? }
@@ -39,6 +44,7 @@ end
 #
 #  id              :bigint           not null, primary key
 #  cargo_checker   :string           not null
+#  departure_time  :time
 #  dock            :string           not null
 #  invoice_number  :string           not null
 #  kind            :string
