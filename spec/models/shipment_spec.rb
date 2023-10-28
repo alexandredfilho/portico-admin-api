@@ -77,6 +77,16 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
+    context 'when the shipment is updated and the status is ready' do
+      it 'should fill in the departure time automatically' do
+        shipment = create(:shipment)
+        shipment.update!(status: 'ready')
+
+        expect(shipment).to be_valid
+        expect(shipment.departure_time).to eq(DateTime.now.strftime('%H:%M:%S'))
+      end
+    end
+
     describe '.associations' do
       it 'belongs to a driver' do
         described_class.reflect_on_association(:driver)
@@ -102,6 +112,7 @@ end
 #
 #  id              :bigint           not null, primary key
 #  cargo_checker   :string           not null
+#  departure_time  :string
 #  dock            :string           not null
 #  invoice_number  :string           not null
 #  kind            :string
