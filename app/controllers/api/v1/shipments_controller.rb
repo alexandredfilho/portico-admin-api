@@ -7,6 +7,7 @@ module Api
     #
     class ShipmentsController < ApplicationController
       before_action :authenticate_user!
+      before_action :set_paper_trail_whodunnit
       before_action :set_shipment, only: %i[show update destroy]
       load_and_authorize_resource
 
