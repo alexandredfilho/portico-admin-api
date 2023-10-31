@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 #
-# This model is responsible to create new instances of Shipment
+# This serializer is responsible to retrieve the shipment attributes
 #
 class ShipmentSerializer < ActiveModel::Serializer
   attributes :id, :invoice_number, :dock, :kind, :warehouse, :cargo_checker, :volume_quantity, :customer, :vehicle,
-             :driver, :created_at, :updated_at, :departure_time, :status
+             :driver, :user, :created_at, :updated_at, :departure_time, :status
 end
 
 # == Schema Information
@@ -25,17 +25,20 @@ end
 #  updated_at      :datetime         not null
 #  customer_id     :bigint           not null
 #  driver_id       :bigint           not null
+#  user_id         :bigint           not null
 #  vehicle_id      :bigint           not null
 #
 # Indexes
 #
 #  index_shipments_on_customer_id  (customer_id)
 #  index_shipments_on_driver_id    (driver_id)
+#  index_shipments_on_user_id      (user_id)
 #  index_shipments_on_vehicle_id   (vehicle_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (customer_id => customers.id)
 #  fk_rails_...  (driver_id => drivers.id)
+#  fk_rails_...  (user_id => users.id)
 #  fk_rails_...  (vehicle_id => vehicles.id)
 #
