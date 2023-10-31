@@ -28,6 +28,13 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.associations' do
+    it 'has many shipments' do
+      described_class.reflect_on_association(:shipment)
+      expect { should has_many(:shipment) }
+    end
+  end
 end
 
 # == Schema Information
