@@ -30,6 +30,10 @@ module Api
 
       def update
         @shipment.update(shipment_params)
+        if shipment_params[:status] && shipment_params[:status] == 'ready'
+          CompletedShipment.create!(user_id: current_user.id,
+                                    shipment_id: @shipment.id)
+        end
         render json: @shipment, serializer: ShipmentSerializer
       end
 
