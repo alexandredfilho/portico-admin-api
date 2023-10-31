@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_30_152326) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_31_005210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_30_152326) do
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "bodywork", ["motorcycle", "car", "van", "truck"]
   create_enum "status", ["active", "inactive"]
+
+  create_table "completed_shipments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shipment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "title"
