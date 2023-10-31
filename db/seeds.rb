@@ -39,6 +39,7 @@ customer.each do |c|
     status: 'pending',
     warehouse: 'high_tech',
     driver_id: Driver.last.id,
-    vehicle_id: Vehicle.last.id
+    vehicle_id: Vehicle.last.id,
+    user_id: User.last.id
   )
 end
