@@ -5,6 +5,7 @@ FactoryBot.define do
     association :customer, factory: :customer
     association :driver, factory: :driver
     association :vehicle, factory: :vehicle
+    association :user, factory: :user
 
     invoice_number { '12345' }
     kind { 'receive' }
@@ -33,17 +34,20 @@ end
 #  updated_at      :datetime         not null
 #  customer_id     :bigint           not null
 #  driver_id       :bigint           not null
+#  user_id         :bigint           not null
 #  vehicle_id      :bigint           not null
 #
 # Indexes
 #
 #  index_shipments_on_customer_id  (customer_id)
 #  index_shipments_on_driver_id    (driver_id)
+#  index_shipments_on_user_id      (user_id)
 #  index_shipments_on_vehicle_id   (vehicle_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (customer_id => customers.id)
 #  fk_rails_...  (driver_id => drivers.id)
+#  fk_rails_...  (user_id => users.id)
 #  fk_rails_...  (vehicle_id => vehicles.id)
 #

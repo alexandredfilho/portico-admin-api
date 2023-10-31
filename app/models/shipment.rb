@@ -4,9 +4,10 @@
 # This model is responsible to create new instances of Shipment
 #
 class Shipment < ApplicationRecord
+  belongs_to :customer
   belongs_to :driver
   belongs_to :vehicle
-  belongs_to :customer
+  belongs_to :user
   has_paper_trail
 
   enum kind: { receive: 'receive', dispatch: 'dispatch' }
@@ -44,7 +45,7 @@ end
 #
 #  id              :bigint           not null, primary key
 #  cargo_checker   :string           not null
-#  departure_time  :time
+#  departure_time  :string
 #  dock            :string           not null
 #  invoice_number  :string           not null
 #  kind            :string
@@ -55,17 +56,20 @@ end
 #  updated_at      :datetime         not null
 #  customer_id     :bigint           not null
 #  driver_id       :bigint           not null
+#  user_id         :bigint           not null
 #  vehicle_id      :bigint           not null
 #
 # Indexes
 #
 #  index_shipments_on_customer_id  (customer_id)
 #  index_shipments_on_driver_id    (driver_id)
+#  index_shipments_on_user_id      (user_id)
 #  index_shipments_on_vehicle_id   (vehicle_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (customer_id => customers.id)
 #  fk_rails_...  (driver_id => drivers.id)
+#  fk_rails_...  (user_id => users.id)
 #  fk_rails_...  (vehicle_id => vehicles.id)
 #

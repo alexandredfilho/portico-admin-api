@@ -14,6 +14,7 @@ class User < ApplicationRecord
          :validatable,
          :jwt_authenticatable,
          jwt_revocation_strategy: self
+  has_many :shipments
 
   enum role: { user: 0, gate_agent: 1, receiver: 2, shipper: 3, admin: 4, dock_agent: 5 }
   after_initialize :set_default_role, if: :new_record?
