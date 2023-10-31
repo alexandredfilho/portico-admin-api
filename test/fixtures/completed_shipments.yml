@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  shipment: one
+
+two:
+  user: two
+  shipment: two
+
+# == Schema Information
+#
+# Table name: completed_shipments
+#
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  shipment_id :integer          not null
+#  user_id     :integer          not null
+#
