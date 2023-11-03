@@ -383,7 +383,6 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-cors
   rails!
-  railties
   rspec-rails
   rspec_junit_formatter
   rubocop-rails

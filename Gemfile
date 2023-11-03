@@ -26,7 +26,6 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'faker'
   gem 'pry'
-  gem 'railties'
   gem 'rspec_junit_formatter'
   gem 'rubocop-rails', require: false
   gem 'rubycritic', require: false
