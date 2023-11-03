@@ -17,6 +17,11 @@ jobs:
             bundle install
 
       - run:
+        name: Prepare database for testing
+          command: |
+            rails db:create db:migrate RAILS_ENV=test
+
+      - run:
           name: Run tests
           command: |
             bundle exec rspec
