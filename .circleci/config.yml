@@ -17,7 +17,7 @@ jobs:
             bundle install
 
       - run:
-        name: Prepare database for testing
+          name: Prepare database for testing
           command: |
             rails db:create db:migrate RAILS_ENV=test
 
