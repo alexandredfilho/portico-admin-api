@@ -280,6 +280,8 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    rspec_junit_formatter (0.6.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.57.1)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -382,6 +384,7 @@ DEPENDENCIES
   rack-cors
   rails!
   rspec-rails
+  rspec_junit_formatter
   rubocop-rails
   rubycritic
   shoulda-matchers (~> 5.0)
