@@ -2,10 +2,10 @@ version: 2.1
 
 jobs:
   build:
-    docker:
-      - image: circleci/ruby:3.0.0
     environment:
       SECRET_KEY_BASE: <%= ENV["SECRET_KEY_BASE"] %>
+    docker:
+      - image: circleci/ruby:3.0.0
 
     working_directory: ~/project
 
