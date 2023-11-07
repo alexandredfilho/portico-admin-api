@@ -4,6 +4,8 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:3.0.0
+    environment:
+      SECRET_KEY_BASE: <%= ENV["SECRET_KEY_BASE"] %>
 
     working_directory: ~/project
 
