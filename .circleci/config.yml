@@ -2,10 +2,11 @@ version: 2.1
 
 jobs:
   build:
-    environment:
-      SECRET_KEY_BASE: <%= ENV["SECRET_KEY_BASE"] %>
     docker:
-      - image: circleci/ruby:3.0.0
+      - image: cimg/postgres:14.0
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: portico_admin_api_test
 
     working_directory: ~/project
 
