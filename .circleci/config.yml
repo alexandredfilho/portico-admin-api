@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:3.0.0
-      - image: circleci/postgres:14.9.0
+      - image: circleci/postgres:14
 
     working_directory: ~/app
 
@@ -30,6 +30,6 @@ jobs:
 
 workflows:
   version: 2
-  your_workflow_name:
+  build_and_test:
     jobs:
       - build
