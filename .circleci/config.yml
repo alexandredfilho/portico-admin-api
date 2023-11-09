@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:3.0.0
-      - image: circleci/postgres:14.9
+      - image: circleci/postgres:14.9.0
 
     working_directory: ~/app
 
