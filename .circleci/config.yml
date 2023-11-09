@@ -13,7 +13,7 @@ executors:
           DB_HOST: 127.0.0.1
           PG_HOST: 127.0.0.1
           PGUSER: portico_admin_api
-      - image: cimg/postgres:12.0
+      - image: cimg/postgres:14.0
         environment:
           POSTGRES_DB: portico_admin_api_test
           POSTGRES_USER: portico_admin_api
