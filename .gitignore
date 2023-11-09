@@ -10,6 +10,9 @@
 /test/version_tmp/
 /tmp/
 /config/master.key
+/config/credentials/development.key
+/config/credentials/test.key
+/config/credentials/production.key
 /log
 # Used by dotenv library to load environment variables.
 # .env
