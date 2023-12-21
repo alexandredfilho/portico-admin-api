@@ -1,3 +1,23 @@
-require: rubocop-rails
-Metrics/BlockLength:
-  AllowedMethods: ['describe', 'context', 'migrations']
+
+AllCops:
+  NewCops: disable
+  EnabledByDefault: false
+  Exclude:
+    - vendor/**/*
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - spec/**/*
+Layout/LineLength:
+  Max: 100
+Layout/ExtraSpacing:
+  AllowForAlignment:
+    Enabled: true
+  AllowBeforeTrailingComments:
+    Enabled: true
+Layout/BlockAlignment:
+  Enabled: false
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: keyword
+Layout/HashAlignment:
+  Enabled: false
