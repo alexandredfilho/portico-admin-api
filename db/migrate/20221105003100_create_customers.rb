@@ -1,4 +1,4 @@
-class CreateCustomers < ActiveRecord::Migration[7.1]
+class CreateCustomers < ActiveRecord::Migration[7.0]
   def change
     create_table :customers do |t|
       create_enum :status, %w[active inactive]

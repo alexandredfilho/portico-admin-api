@@ -1,4 +1,4 @@
-class ChangeShipmentFieldValidation < ActiveRecord::Migration[7.1]
+class ChangeShipmentFieldValidation < ActiveRecord::Migration[7.0]
   def up
     change_column :shipments, :cargo_checker, :string, null: false
     change_column :shipments, :dock, :string, null: false
