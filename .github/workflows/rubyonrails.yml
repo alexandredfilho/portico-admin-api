@@ -1,0 +1,82 @@
+# This workflow uses actions that are not certified by GitHub.  They are
+# provided by a third-party and are governed by separate terms of service,
+# privacy policy, and support documentation.
+#
+# This workflow will install a prebuilt Ruby version, install dependencies, and
+# run tests and linters.
+name: 'CI'
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14-alpine
+        ports:
+          - '5432:5432'
+        env:
+          POSTGRES_USER: 'portico_admin_api'
+          POSTGRES_PASSWORD: 'portico_admin_api'
+          POSTGRES_DB: portico_admin_api_test
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: 'postgres://portico_admin_api:portico_admin_api@127.0.0.1:5432/portico_admin_api_test'
+    steps:
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+      - name: Install library for postgres
+        run: sudo apt-get install libpq-dev
+      - name: Checkout code
+        uses: actions/checkout@v3
+      # Add or replace dependency steps here
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
+      # Add or replace database setup steps here
+      - name: Set up database schema
+        run: bin/rails db:create db:schema:load
+      # Add or replace test runners here
+      - name: Precompile Assets
+        run: bundle exec rake assets:precompile
+      - name: Run tests
+        run: bundle exec rspec
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
+      # Add or replace any other lints here
+      - name: Security Audit Deps
+        run: bin/bundler-audit --update
+      - name: Security Audit App
+        run: bin/brakeman -q -w2
+      - name: Lint Ruby
+        run: bin/rubocop --parallel
+      - name: Code Quality
+        run: bin/rubycritic app lib spec --no-browser -s 97
+      - name: Javascript Lint
+        run: yarn run lint
