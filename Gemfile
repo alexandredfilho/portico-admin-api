@@ -25,17 +25,18 @@ group :development, :test do
   gem 'annotate'
   gem 'awesome_print'
   gem 'brakeman'
+  gem 'bundler-audit', require: false
   gem 'debug', platforms: %i[mri windows]
   gem 'faker'
-  gem 'pry'
-  gem 'rspec_junit_formatter'
+  gem 'pry-byebug'
   gem 'rubocop-rails', require: false
   gem 'rubycritic', require: false
+  gem 'ruby-lsp', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
 end
 
 group :test do
   gem 'factory_bot_rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 6.1.0'
 end
