@@ -33,7 +33,7 @@ module Users
     def jwt_payload
       JWT.decode(
         request.headers['Authorization'].split(' ')[1],
-        Rails.application.credentials.fetch(:secret_key_base)
+        Rails.application.fetch(:secret_key_base)
       ).first
     end
 
