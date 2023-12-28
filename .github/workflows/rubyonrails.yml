@@ -19,12 +19,12 @@ jobs:
         ports:
           - '5432:5432'
         env:
-          POSTGRES_USER: 'portico_admin_api'
-          POSTGRES_PASSWORD: 'portico_admin_api'
+          POSTGRES_USER: ''
+          POSTGRES_PASSWORD: ''
           POSTGRES_DB: portico_admin_api_test
     env:
       RAILS_ENV: test
-      DATABASE_URL: 'postgres://portico_admin_api:portico_admin_api@127.0.0.1:5432/portico_admin_api_test'
+      DATABASE_URL: 'portico_admin_api_test'
     steps:
       - name: Set Node.js 20.x
         uses: actions/setup-node@v3
