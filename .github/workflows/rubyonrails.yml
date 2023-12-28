@@ -61,10 +61,10 @@ jobs:
           bundler-cache: true
       # Add or replace any other lints here
       - name: Security Audit Deps
-        run: bundle exec bundle-audit --update
+        run: bin/bundler-audit --update
       - name: Security Audit App
-        run: brakeman -q -w2
+        run: bin/brakeman -q -w2
       - name: Lint Ruby
-        run: rubocop --parallel
+        run: bin/rubocop --parallel
       - name: Code Quality
-        run: rubycritic app lib spec --no-browser -s 97
+        run: bin/rubycritic app lib spec --no-browser -s 97
