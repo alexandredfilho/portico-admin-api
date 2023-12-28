@@ -4,8 +4,9 @@
 # This serializer is responsible to retrieve the shipment attributes
 #
 class ShipmentSerializer < ActiveModel::Serializer
-  attributes :id, :invoice_number, :dock, :kind, :warehouse, :cargo_checker, :volume_quantity, :customer, :vehicle,
-             :driver, :user, :created_at, :updated_at, :departure_time, :status
+  attributes :id, :invoice_number, :dock, :kind, :warehouse, :cargo_checker,
+             :volume_quantity, :customer, :vehicle, :driver, :user,
+             :created_at, :updated_at, :departure_time, :status
 end
 
 # == Schema Information

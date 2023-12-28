@@ -48,8 +48,10 @@ module Api
       end
 
       def shipment_params
-        params.require(:shipment).permit(:customer_id, :invoice_number, :cargo_checker, :dock, :kind, :warehouse,
-                                         :volume_quantity, :driver_id, :vehicle_id, :user_id, :departure_time, :status)
+        params.require(:shipment).permit(:customer_id, :invoice_number, :cargo_checker,
+                                         :dock, :kind, :warehouse, :volume_quantity,
+                                         :driver_id, :vehicle_id, :user_id,
+                                         :departure_time, :status)
       end
     end
   end
