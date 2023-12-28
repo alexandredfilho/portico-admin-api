@@ -17,7 +17,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'paper_trail'
 gem 'pg', '~> 1.4', '>= 1.4.4'
 gem 'prettier'
-gem 'puma', '>= 5.0'
+gem 'puma', '>= 6.3.1'
 gem 'rack-cors'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
