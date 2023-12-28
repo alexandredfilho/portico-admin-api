@@ -14,7 +14,8 @@ class Shipment < ApplicationRecord
   enum warehouse: { high_tech: 'high_tech', healthcare: 'healthcare' }
   enum status: { pending: 'pending', ready: 'ready' }
 
-  validates :invoice_number, :kind, :warehouse, :customer_id, :driver_id, :vehicle_id, :status, presence: true
+  validates :invoice_number, :kind, :warehouse, :customer_id, :driver_id, :vehicle_id, :status,
+            presence: true
 
   # validate(if: ->(event) { event.pending? }) do
   #   validates :invoice_number, :kind, :warehouse, presence: true

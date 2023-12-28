@@ -22,10 +22,6 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
-
-  def jwt_payload
-    super
-  end
 end
 
 # == Schema Information

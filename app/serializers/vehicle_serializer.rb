@@ -4,7 +4,8 @@
 # This serializer is used to retrieve the vehicle attributes
 #
 class VehicleSerializer < ActiveModel::Serializer
-  attributes :id, :manufacturer, :sample, :license_plate, :bodywork, :created_at, :updated_at, :updated_at
+  attributes :id, :manufacturer, :sample, :license_plate, :bodywork, :created_at, :updated_at,
+             :updated_at
 end
 
 # == Schema Information
