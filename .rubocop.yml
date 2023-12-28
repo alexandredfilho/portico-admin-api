@@ -1,6 +1,6 @@
-
 AllCops:
   NewCops: disable
+  SuggestExtensions: false
   EnabledByDefault: false
   Exclude:
     - vendor/**/*
@@ -8,16 +8,46 @@ AllCops:
     - config/**/*
     - db/**/*
     - spec/**/*
+    - node_modules/**/*
+    - lib/**/*
+
 Layout/LineLength:
   Max: 100
+
 Layout/ExtraSpacing:
   AllowForAlignment:
     Enabled: true
   AllowBeforeTrailingComments:
     Enabled: true
+
 Layout/BlockAlignment:
   Enabled: false
+
 Layout/EndAlignment:
   EnforcedStyleAlignWith: keyword
+
 Layout/HashAlignment:
   Enabled: false
+
+Metrics:
+  Enabled: true
+
+Style/CommentedKeyword:
+  Enabled: false
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: true
+
+Style/ReturnNilInPredicateMethodDefinition:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 20
