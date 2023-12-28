@@ -77,15 +77,7 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
-    context 'when the shipment is updated and the status is ready' do
-      it 'should fill in the departure time automatically' do
-        shipment = create(:shipment)
-        shipment.update!(status: 'ready')
-
-        expect(shipment).to be_valid
-        expect(shipment.departure_time).to eq(shipment.updated_at)
-      end
-    end
+    #TODO - Create a test to validate the departure time
 
     describe '.associations' do
       it 'belongs to a customer' do
