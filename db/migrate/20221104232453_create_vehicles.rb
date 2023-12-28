@@ -1,4 +1,4 @@
-class CreateVehicles < ActiveRecord::Migration[7.0]
+class CreateVehicles < ActiveRecord::Migration[7.2]
   def change
     create_table :vehicles do |t|
       create_enum :bodywork, %w[motorcycle car van truck]

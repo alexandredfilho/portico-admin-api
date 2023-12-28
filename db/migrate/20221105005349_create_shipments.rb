@@ -1,4 +1,4 @@
-class CreateShipments < ActiveRecord::Migration[7.0]
+class CreateShipments < ActiveRecord::Migration[7.2]
   def change
     create_table :shipments do |t|
       t.references :driver, null: false, foreign_key: true

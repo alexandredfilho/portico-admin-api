@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddDepartureTimeToShipment < ActiveRecord::Migration[7.0]
+class AddDepartureTimeToShipment < ActiveRecord::Migration[7.2]
   def up
     add_column :shipments, :departure_time, :string
   end

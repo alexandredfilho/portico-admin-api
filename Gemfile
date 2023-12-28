@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'rails', '~> 7.0.8'
+gem 'rails', github: 'rails/rails', branch: 'main'
 
 gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
@@ -29,6 +29,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'faker'
   gem 'pry-byebug'
+  gem 'rspec_junit_formatter'
   gem 'rubocop-rails', require: false
   gem 'rubycritic', require: false
   gem 'ruby-lsp', require: false
@@ -38,5 +39,5 @@ end
 
 group :test do
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 6.1.0'
+  gem 'rspec-rails'
 end

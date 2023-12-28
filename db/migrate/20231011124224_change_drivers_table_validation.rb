@@ -1,4 +1,4 @@
-class ChangeDriversTableValidation < ActiveRecord::Migration[7.0]
+class ChangeDriversTableValidation < ActiveRecord::Migration[7.2]
   def up
     change_column :drivers, :document, :string, null: false
     change_column :drivers, :first_name, :string, null: false
