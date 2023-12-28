@@ -83,7 +83,7 @@ RSpec.describe Shipment, type: :model do
         shipment.update!(status: 'ready')
 
         expect(shipment).to be_valid
-        expect(shipment.departure_time).to eq(DateTime.now.strftime('%H:%M:%S'))
+        expect(shipment.departure_time).to eq(shipment.updated_at)
       end
     end
 
