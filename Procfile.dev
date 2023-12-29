@@ -1,1 +1,3 @@
-web: bin/rails server -p 3000
+web: env RUBY_DEBUG_OPEN=true bin/rails server -p 3000 -b 0.0.0.0
+jobs: bundle exec sidekiq -q default -q mailers -q critical -q notifications
+maildev: maildev
