@@ -31,13 +31,23 @@ class Shipment < ApplicationRecord
   #             :kind, presence: true
   # end
 
+  def notify(invoice_number)
+    ::Notifications::Api.notify_async(
+      user_id:, options: {
+        message: "Shipment completed! NF: #{invoice_number}"
+      }
+    )
+  end
+
   before_update(
     if: ->(model) { model.ready? }
   ) { |model| model.departure_time = DateTime.now.strftime('%H:%M:%S') }
 
   after_update_commit(
     if: ->(model) { model.dispatch? && model.ready? }
-  ) { |model| DeliveriesMailer.delivery_completed(model).deliver_now }
+  ) do |model|
+      DeliveriesMailer.delivery_completed(model).deliver_now && notify(model.invoice_number)
+    end
 end
 
 # == Schema Information
