@@ -14,7 +14,7 @@ RSpec.describe Driver, type: :model do
   end
 
   context 'when document is nil' do
-    it 'should return an error' do
+    it 'should return an error asking for a document' do
       driver = build_stubbed(:driver, document: nil)
 
       expect(driver).to_not be_valid
@@ -23,7 +23,7 @@ RSpec.describe Driver, type: :model do
   end
 
   context 'when first name is nil' do
-    it 'should return an error' do
+    it 'should return an error asking for first name' do
       driver = build_stubbed(:driver, first_name: nil)
 
       expect(driver).to_not be_valid
@@ -32,7 +32,7 @@ RSpec.describe Driver, type: :model do
   end
 
   context 'when shipping company is nil' do
-    it 'should return an error' do
+    it 'should return an error asking for a shipping company' do
       driver = build_stubbed(:driver, shipping_company: nil)
 
       expect(driver).to_not be_valid
