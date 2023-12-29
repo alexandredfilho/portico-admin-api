@@ -7,4 +7,3 @@ module Notifications
   class InApp < Notification
   end
 end
-
