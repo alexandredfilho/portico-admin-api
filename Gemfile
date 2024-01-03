@@ -34,7 +34,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-byebug'
   gem 'rspec_junit_formatter'
-  gem 'rubocop-rails', require: false
+  gem 'rubocop', require: false
   gem 'rubycritic', require: false
   gem 'ruby-lsp', require: false
   gem 'shoulda-matchers', '~> 5.0'

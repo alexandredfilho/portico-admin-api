@@ -340,11 +340,6 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.30.0)
       parser (>= 3.2.1.0)
-    rubocop-rails (2.23.1)
-      activesupport (>= 4.2.0)
-      rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
-      rubocop-ast (>= 1.30.0, < 2.0)
     ruby-lsp (0.13.2)
       language_server-protocol (~> 3.17.0)
       prism (>= 0.19.0, < 0.20)
@@ -447,7 +442,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails
   rspec_junit_formatter
-  rubocop-rails
+  rubocop
   ruby-lsp
   rubycritic
   shoulda-matchers (~> 5.0)
