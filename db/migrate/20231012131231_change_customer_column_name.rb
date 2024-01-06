@@ -1,4 +1,4 @@
-class ChangeCustomerColumnName < ActiveRecord::Migration[7.2]
+class ChangeCustomerColumnName < ActiveRecord::Migration[7.0]
   def up
     rename_column :customers, :description, :title
   end

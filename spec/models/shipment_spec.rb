@@ -12,8 +12,8 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
-    context 'when the invoice number is nil' do
-      it 'should return an error' do
+    context 'when invoice number is nil' do
+      it 'should request an invoice number' do
         shipment = build_stubbed(:shipment, invoice_number: nil)
 
         expect(shipment).to_not be_valid
@@ -21,8 +21,8 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
-    context 'when the kind is nil' do
-      it 'should return an error' do
+    context 'when kind is nil' do
+      it 'should request for a kind' do
         shipment = build_stubbed(:shipment, kind: nil)
 
         expect(shipment).to_not be_valid
@@ -30,8 +30,8 @@ RSpec.describe Shipment, type: :model do
       end
     end
 
-    context 'when the warehouse is nil' do
-      it 'should return an error' do
+    context 'when warehouse is nil' do
+      it 'should request a warehouse' do
         shipment = build_stubbed(:shipment, warehouse: nil)
 
         expect(shipment).to_not be_valid
@@ -40,7 +40,7 @@ RSpec.describe Shipment, type: :model do
     end
 
     context 'when the customer is nil' do
-      it 'should return an error' do
+      it 'should request a customer' do
         shipment = build_stubbed(:shipment, customer_id: nil)
 
         expect(shipment).to_not be_valid
@@ -51,7 +51,7 @@ RSpec.describe Shipment, type: :model do
     end
 
     context 'when the driver is nil' do
-      it 'should return an error' do
+      it 'should request a driver' do
         shipment = build_stubbed(:shipment, driver_id: nil)
 
         expect(shipment).to_not be_valid
@@ -60,7 +60,7 @@ RSpec.describe Shipment, type: :model do
     end
 
     context 'when the vehicle is nil' do
-      it 'should return an error' do
+      it 'should request a vehicle' do
         shipment = build_stubbed(:shipment, vehicle_id: nil)
 
         expect(shipment).to_not be_valid
@@ -69,7 +69,7 @@ RSpec.describe Shipment, type: :model do
     end
 
     context 'when the status is nil' do
-      it 'should return an error' do
+      it 'should return an error requesting for a status' do
         shipment = build_stubbed(:shipment, status: nil)
 
         expect(shipment).to_not be_valid
