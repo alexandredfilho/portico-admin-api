@@ -1,4 +1,4 @@
-class CreateCompletedShipments < ActiveRecord::Migration[7.2]
+class CreateCompletedShipments < ActiveRecord::Migration[7.0]
   def change
     create_table :completed_shipments do |t|
       t.integer :user_id, null: false

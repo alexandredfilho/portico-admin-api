@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddUserToShipment < ActiveRecord::Migration[7.2]
+class AddUserToShipment < ActiveRecord::Migration[7.0]
   def up
     add_reference :shipments, :user, null: false, foreign_key: true
   end
