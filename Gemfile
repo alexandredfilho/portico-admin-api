@@ -21,6 +21,8 @@ gem 'pg', '~> 1.1'
 gem 'prettier'
 gem 'puma', '>= 6.3.1'
 gem 'rack-cors'
+gem 'redis', '~> 4.0'
+gem 'sidekiq'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
