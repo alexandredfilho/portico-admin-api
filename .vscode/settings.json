@@ -8,8 +8,12 @@
   // "ruby.rubocop.executePath": "D:/bin/Ruby22-x64/bin/"
 
   // If not specified, it assumes a null value by default.
-  "ruby.rubocop.configFilePath": "/path/to/config/.rubocop.yml",
+  "ruby.rubocop.configFilePath": "/.rubocop.yml",
 
   // default true
-  "ruby.rubocop.onSave": true
+  "ruby.rubocop.onSave": true,
+
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+  }
 }
