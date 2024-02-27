@@ -4,7 +4,7 @@
 # This model is responsible to create new instances of Vehicles
 #
 class Vehicle < ApplicationRecord
-  has_many :shipments
+  has_many :shipments, dependent: :destroy
   has_many :drivers, through: :shipments
   has_paper_trail
 

@@ -4,7 +4,7 @@
 # This model is responsible to create new instances of Customers
 #
 class Customer < ApplicationRecord
-  has_many :shipments
+  has_many :shipments, dependent: :destroy
   validates :title, presence: true
   has_paper_trail
 

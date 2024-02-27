@@ -4,7 +4,7 @@
 # This model is responsible to create new instances of Drivers
 #
 class Driver < ApplicationRecord
-  has_many :shipments
+  has_many :shipments, dependent: :destroy
   has_many :vehicles, through: :shipments
   before_save :set_full_name
   has_paper_trail
