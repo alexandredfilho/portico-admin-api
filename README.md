@@ -34,17 +34,18 @@ Clone this repository on your local machine using the git command:
 
 > git clone
 
-Install all backend gems:
+Now it's time to prepare your local environment with the necessary dependencies and also prepare the database. Run the command below and wait, after the setup is complete, the environment will be prepared and ready to receive requests:
 
-> bundle install
-
-Now it's time to prepare your local database, so run the rails commands:
-
-> rails db:create db:migrate db:seed
+> bin/setup
 
 </hr>
 
 Congratulations, the API is ready to use! :tada:
+</hr>
+
+If you need to restart the API, press `ctrl+c` to stop the server and run the command below to initialize the API again:
+
+> bin/dev
 
 </hr>
 
