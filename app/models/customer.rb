@@ -5,7 +5,7 @@
 #
 class Customer < ApplicationRecord
   has_many :shipments, dependent: :destroy
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   has_paper_trail
 
   enum :status, { active: 'active', inactive: 'inactive' }

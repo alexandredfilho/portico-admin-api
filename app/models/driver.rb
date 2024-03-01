@@ -9,7 +9,7 @@ class Driver < ApplicationRecord
   before_save :set_full_name
   has_paper_trail
 
-  validates :document, :first_name, :shipping_company, presence: true
+  validates :document, :first_name, :shipping_company, presence: true, uniqueness: :document
 
   private
 
