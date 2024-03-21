@@ -1,5 +1,5 @@
 <h1 align="center">
-  <strong>Porico</strong> Admin v1
+  <strong>Portico</strong> Admin v1
 </h1>
 
   </hr>
